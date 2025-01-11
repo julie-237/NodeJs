@@ -2,17 +2,17 @@
 //console.log (username);
 const express = require('express');
 
-const app = express()
+const server = express()
 
-app.get("/currentTime", function(req, res){
+server.get("/currentTime", function(req, res){
     res.send('<h1>' + new Date().toISOString()  + '<h1>');
 })
 
-app.get("/", function(req, res){
-    res.send('<h1>Hello World!<h1>');
+server.get("/", function(req, res){
+    res.send('<form action="/store-user" method="POST"><label>Your Name<label><input type ="text" name="username"><button>Submit<button><form>');
 })
 
-app.listen(3000)
+server.listen(3000)
 
 /* function handleRequest(request, response) {
     if (request.url === '/currentTime') {
