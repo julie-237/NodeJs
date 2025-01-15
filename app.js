@@ -20,8 +20,17 @@ server.get('/', function(req, res){
 
 server.post('/store-user', function(req, res){
     const userName= req.body.username;
-    const filepath = path.join(__dirname, 'data', 'users.json')
-    fs.writeFileSync(filepath)
+    const filePath = path.join(__dirname, 'data', 'users.json')
+    
+    const fileData = fs.readFileSync(filePath);
+    const existingUsers = JSON.parse(fileData);
+    //JSON.parse transforms raw text from the JSON file into javascript object or array
+
+    
+    existingUsers.push(userName);
+    //in order to push/add/append data to the existing file we must transform in back to raw text using JSON.stringify
+
+    fs.writeFileSync(filePath, JSON.stringify(existingUsers));
     res.send('<h1>Username stored!</h1>');
 });
 
