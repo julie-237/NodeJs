@@ -15,7 +15,7 @@ server.get('/currentTime', function(req, res){
 })
 
 server.get('/', function(req, res){
-    res.send('<form action="/store-user" method="POST"><label>Your Name<label><input type ="text" name="username"><button>Submit<button><form>');
+    res.send('<form action="/store-user" method="POST"><label>Your Name: <label><input type ="text" name="username"><button>Submit<button><form>');
 })
 
 server.post('/store-user', function(req, res){
@@ -69,3 +69,6 @@ const server = http.createServer(handleRequest);
 server.listen(3000); */
 //amazon.com => Send a request to Amazon's server
 // amazon.com:443 or 80
+
+//installed nodemon which is a package that will not help us in our code but instead in developement i.e to automatically restart the server when we modify our code
+//--save-dev marks the package as a development dependency telling node.js that its not a package we'll use in our code but instead in dev't

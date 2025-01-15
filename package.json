@@ -4,8 +4,7 @@
   "description": "Getting started with Node and Express",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"start": "nodemon app.js"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/julie-237/NodeJS.git"
@@ -18,5 +17,8 @@
   "homepage": "https://github.com/julie-237/NodeJS#readme",
   "dependencies": {
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
