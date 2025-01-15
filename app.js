@@ -1,8 +1,11 @@
 //let username = "julienne";
 //console.log (username);
+const { urlencoded } = require('body-parser');
 const express = require('express');
 
-const server = express()
+const server = express();
+
+server.use(express.urlencoded({extended: false}))
 
 server.get("/currentTime", function(req, res){
     res.send('<h1>' + new Date().toISOString()  + '<h1>');
@@ -11,6 +14,12 @@ server.get("/currentTime", function(req, res){
 server.get("/", function(req, res){
     res.send('<form action="/store-user" method="POST"><label>Your Name<label><input type ="text" name="username"><button>Submit<button><form>');
 })
+
+server.post("/store-user", function(req, res){
+    const userName= req.body.username;
+    console.log(userName);
+    res.send("<h1>Username stored!</h1>");
+});
 
 server.listen(3000)
 
